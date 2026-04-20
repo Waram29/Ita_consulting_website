@@ -383,7 +383,7 @@ body {
 }
 
 .about-container {
-    max-width: 1500px;
+    max-width: 1550px;
     margin: auto;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
