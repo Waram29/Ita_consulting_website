@@ -138,3 +138,42 @@ window.addEventListener('scroll', () => {
     const progress = ((activeSteps - 1) / (steps.length - 1)) * 100;
     lineFill.style.height = Math.max(0, progress) + "%";
 });
+
+//  ==== SLIDER TESTIMONIALS =====
+// ==== SLIDER TESTIMONIALS (CORRIGÉ) =====
+const trackTesti = document.getElementById('sliderTrack');
+const slidesTesti = document.querySelectorAll('.slide-3d'); // Renommé ici
+let currentIndex = Math.min(1, slidesTesti.length - 1);
+
+function updateSlider() {
+    slidesTesti.forEach((slide, index) => {
+        slide.classList.remove('active');
+        if (index === currentIndex) {
+            slide.classList.add('active');
+        }
+    });
+
+    // Vérification de sécurité pour éviter les erreurs si l'élément n'existe pas encore
+    if (slidesTesti.length > 0) {
+        const slideWidth = slidesTesti[0].offsetWidth;
+        const containerWidth = document.querySelector('.slider-3d-wrapper').offsetWidth;
+        
+        // Calcul précis pour centrer
+        const offset = (containerWidth / 2) - (slideWidth * currentIndex) - (slideWidth / 2);
+        trackTesti.style.transform = `translateX(${offset}px)`;
+    }
+}
+
+function moveSlide(direction) {
+    currentIndex += direction;
+    if (currentIndex < 0) currentIndex = 0;
+    if (currentIndex >= slidesTesti.length) currentIndex = slidesTesti.length - 1;
+    updateSlider();
+}
+
+// Initialisation et adaptation au redimensionnement
+window.addEventListener('resize', updateSlider);
+window.addEventListener('load', updateSlider);
+
+// Petit délai pour s'assurer que le DOM est bien calculé avant le premier rendu
+setTimeout(updateSlider, 100);
