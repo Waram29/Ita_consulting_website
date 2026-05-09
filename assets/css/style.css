@@ -371,7 +371,7 @@ body {
         right: 30px;
         width: auto;
         min-width: 220px;
-        background-color: rgba(255, 255, 255, 0.55);
+        background-color: rgba(255, 255, 255, 0.65);
         border-radius: var(--radius);
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         border: 1px solid rgba(0,0,0,0.05);
@@ -407,8 +407,9 @@ body {
     }
 
     .nav-menu a:hover {
-        background-color: var(--azure-light);
-        color: var(--green-dark);
+        color: var(--gold);
+        background-color: var(--green-soft);
+        transition: background-color 0.3s ease, color 0.4s ease;
     }
 
     .navbar .hero-btn { display: none; }
@@ -433,12 +434,15 @@ body {
         height: 60px; /* On réduit juste la hauteur sur mobile */
         /* La largeur s'ajustera toute seule grâce à width: auto */
     }
-    .brand-sub { display: none; }
+    .brand-name, .brand-sub { display: none; }
     
     .nav-menu {
         right: 15px;
-        width: calc(100% - 30px);
+        /* width: calc(100% - 50px); */
     }
+    /* .nav-menu a:hover {
+        color: var(--gold);
+    } */
 }
 
 /* --- Petit mobile (max 360px) --- */
@@ -572,7 +576,7 @@ body {
 /* ===== RESPONSIVE HERO ===== */
 /* --- Très grands écrans (1920px+) --- */
 @media (min-width: 1920px) {
-    .hero-slider { height: 70vh; } /* On donne plus de hauteur pour le prestige */
+    .hero-slider { height: 70vh; } 
     .hero-text h1 { font-size: 5rem; }
 }
 
@@ -612,7 +616,7 @@ body {
 
 /* --- Mobile (max 480px) --- */
 @media (max-width: 480px) {
-    .hero-slider { min-height: 80vh; } /* Plus haut pour laisser respirer les éléments empilés */
+    .hero-slider { min-height: 75vh; } /* Plus haut pour laisser respirer les éléments empilés */
     .hero-text h1 { font-size: 2.2rem; line-height: 1.1; }
     .hero-text p { font-size: 1rem; line-height: 1.4; }
     .hero-image img { max-width: 250px; }
@@ -766,12 +770,6 @@ body {
     transition: all 0.3s ease;
 }
 
-.about-description:hover {
-    color: var(--green);
-    font-weight: bold;
-    cursor:default;
-
-}
 
 /* BADGES CARACTÉRISTIQUES */
 
@@ -942,7 +940,7 @@ body {
 
     .about-description {
         font-size: 1rem;
-        text-align: left; /* Meilleure lisibilité sur petit écran */
+        text-align: center; /* Meilleure lisibilité sur petit écran */
     }
 
     .badge {
@@ -2433,8 +2431,8 @@ body {
 .logo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 5px;
-    margin-bottom: 18px;
     cursor: pointer;
 }
 
@@ -2450,12 +2448,17 @@ body {
     font-weight: 700;
     letter-spacing: 0.5px;
 }
+.brand-info{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .brand-info p {
-    font-size: 0.82rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    margin-bottom: 40px;
-    max-width: 290px;
+    margin-bottom: 20px;
+    max-width: 400px;
 }
 
 /* Réseaux Sociaux (Cercles discrets) */
