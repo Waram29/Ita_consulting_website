@@ -304,6 +304,11 @@ body {
     color: var(--gold);
     text-decoration: underline solid var(--green) space(1px);
 }
+/* État actif quand on est sur la section */
+.nav-menu a.active {
+    color: var(--gold);
+}
+
 
 
 .hero-btn {
