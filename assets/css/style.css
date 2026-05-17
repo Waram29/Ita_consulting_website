@@ -728,10 +728,6 @@ body {
     transition: color 0.3s ease;
 }
 
-.about-description:hover {
-    color: var(--green);
-}
-
 
 /* ANIMATIONS */
 
@@ -757,12 +753,11 @@ body {
     color: var(--navy);
     margin: 20px 0 30px 0;
     line-height: 1.2;
-    letter-spacing: -0.02em;
 }
 
 .about-content h2 span {
     color: var(--green);
-    display: block;
+    display: inline-block;
 }
 
 .about-description {
@@ -856,7 +851,11 @@ body {
 @media (max-width: 1440px) {
     .about-container {
         gap: 80px;
-        padding: 0 40px;
+        padding: 0 30px;
+    }
+    .about-content h2 {
+        font-size: 2.3rem;
+        text-align: center;
     }
 }
 
@@ -899,6 +898,7 @@ body {
     .about-description {
         margin: 0 auto 20px;
         max-width: 700px;
+        text-align: justify; /* Justifié pour une meilleure lisibilité sur tablette */
     }
 }
 
@@ -909,12 +909,17 @@ body {
     }
 
     .about-content h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .badge {
+        justify-content: center;
         padding: 10px 15px;
         font-size: 0.85rem;
+    }
+    .about-description {
+        text-align: justify; /* Justifié pour éviter l'effet "brut" du centrage */
+        padding: 0 10px;    /* Légère marge pour la lisibilité mobile */
     }
 }
 
@@ -927,7 +932,7 @@ body {
 
     .about-subtitle {
         font-size: 1.2rem;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     .about-images img {
@@ -937,17 +942,25 @@ body {
     }
 
     .about-content h2 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+        padding: 0 5px;
+        letter-spacing: 0.02em;
+    }
+    .about-content h2 span {
         font-size: 1.8rem;
+        display: inline; /* On garde le span sur la même ligne pour éviter les sauts de ligne sur petit écran */
         line-height: 1.3;
+        font-weight: 900;
     }
 
     .about-description {
         font-size: 1rem;
-        text-align: center; /* Meilleure lisibilité sur petit écran */
+        text-align: justify; /* Meilleure lisibilité sur petit écran */
     }
 
     .badge {
-        width: 100%; /* Badges pleine largeur pour une lecture claire */
+        width: auto; /* Badges pleine largeur pour une lecture claire */
         justify-content: center;
     }
 
@@ -965,7 +978,7 @@ body {
     }
     
     .about-section {
-        padding-top: 60px;
+        padding-top: 40px;
     }
 }
 /* ANIMATIONS */
@@ -1308,6 +1321,9 @@ body {
     .detail-card {
         padding: 30px;
         
+    }
+    .section-title {
+        font-size: 2rem;
     }
 }
 @media (max-width: 480px) {
@@ -2623,8 +2639,7 @@ body {
 /* --- Petit Mobile (max 600px) --- */
 @media (max-width: 600px) {
     .footer-studio-flex {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        text-align: center; /* On centre tout pour l'équilibre visuel */
+        grid-template-columns: 1fr; /* Une seule colonne */ 
         gap: 35px;
     }
 
@@ -2636,24 +2651,30 @@ body {
         margin-left: auto;
         margin-right: auto;
         font-size: 0.85rem;
+        text-align : center; /* Centre le texte de présentation */
+    }
+    .brand-info h3 {
+        text-align: center; /* Centre le titre de la marque */
+        Color: var(--white);
     }
 
     .studio-socials {
-        justify-content: center; /* Centre les cercles sociaux */
+        display: flex;
+        justify-content: flex-start; /* Les icônes de réseaux sociaux s'alignent à gauche */
     }
 
     .studio-col h4 {
         margin-bottom: 15px;
         margin-top: 10px;
     }
-
-    .contact-item {
-        justify-content: center; /* Centre les infos de contact */
+    .studio-col li {
+        text-align: left; /* Aligne les liens à gauche pour un meilleur rendu sur mobile */
     }
-
-    .newsletter-form {
-        max-width: 320px;
-        margin: 15px auto 0; /* Centre la barre de newsletter */
+    .contact-item {
+        display: flex;
+        justify-content: flex-start; /* Aligne les icônes de téléphone/mail à gauche */
+        align-items: center;
+        gap: 10px;
     }
 
     .bottom-flex {
@@ -2669,6 +2690,12 @@ body {
 @media (max-width: 480px) {
     .newsletter-form input {
         font-size: 16px; /* Évite le zoom automatique sur iOS au clic */
+    }
+    .studio-col {
+        text-align: left; /* Centre les titres et les listes pour un meilleur rendu sur très petit écran */
+    }
+    .contact-item {
+        text-align: left; /* Centre les titres et les listes pour un meilleur rendu sur très petit écran */
     }
 }
 
